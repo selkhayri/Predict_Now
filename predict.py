@@ -67,4 +67,4 @@ def process():
 	js = [ { "prediction_result" : int(y_pred[0]) } ]
 	
 	response =  Response(json.dumps(js),  mimetype='application/json')
-	return render_template('index.html', prediction_result=int(y_pred[0]))
+	return render_template('index.html', raw_text=json_text, prediction_result=int(y_pred[0]))

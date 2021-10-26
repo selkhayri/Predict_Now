@@ -40,12 +40,19 @@
 <br/>
 <div class="container">
 
-	<form method="POST" action="/process">
+	<form method="POST" action="/">
 	    <div class="form-group">
-	            <label>Enter predictor variables in JSON format</label>
-	    	<textarea type="text" rows="5" cols="5" class="form-control"  name="rawtext" required="true">{{raw_text}}</textarea>
-	    </div>
-	    <div>
+	            <label>Your Text</label>
+	    	<textarea type="text" rows="5" cols="5" class="form-control"  name="rawtext" required="true">   </textarea>
+	    	<br/>
+	    	<select class="form-control" name="taskoption">
+			<option selected>Select Task</option>
+			<option value="ORG">Organization</option>
+			<option value="PERSON">Person</option>
+			<option value="GPE">Geopolitical</option>
+			<option value="MONEY">Money</option>
+		</select>
+		<br/>
 	    	<button type="reset" class="btn btn-primary"><i class="fa fa-eraser"></i> Clear</button>
 	    	<button type="submit" class="btn btn-info"><i class="fa fa-database"></i> Submit</button>
 		 
@@ -55,8 +62,12 @@
 
 <div class="container">
     	<div class="alert alert-success" role="alert">
-		<p class="alert-heading">Prediction</p>
-		<p>Result:{{prediction_result}}</p>
+		<p class="alert-heading">Result</p>
+		<p>Number of Records:{{num_of_results}}</p>
+		<ul>{% for i in results %}
+			<li>{{i}}</li>
+			{%endfor %}
+	    	</ul>
     	</div>
 </div>
     
