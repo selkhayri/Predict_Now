@@ -49,5 +49,8 @@ y_pred = lr.predict(X_test)
 print(confusion_matrix(y_test, y_pred))
 
 
-filename = "predict_now.sav"
-pickle.dump(lr, open(filename, 'wb'))
+filename = "/home/sami/education/DataScience/Sharpest Minds/Predict_Now/predict_now.sav"
+file = open(filename, 'wb')
+pickle.dump(lr, file)
+file.close()
+
