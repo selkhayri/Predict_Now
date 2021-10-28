@@ -3,9 +3,17 @@
 
 
 # import xlsxwriter
-import pylightxl as xl
+# import pylightxl as xl
 import pandas as pd
 from sklearn.linear_model import LogisticRegression
+from sklearn.ensemble import RandomForestClassifier
+from sklearn import svm
+from sklearn.svm import LinearSVC
+from sklearn.naive_bayes import MultinomialNB
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.ensemble import BaggingClassifier
+from sklearn.ensemble import AdaBoostClassifier
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import confusion_matrix
 import pickle
@@ -23,7 +31,7 @@ app = Flask(__name__)
 filename = "predict_now.sav"
 infile = open(filename, 'rb')
 
-lr = pickle.load(infile, encoding='bytes')
+model = pickle.load(infile, encoding='bytes')
 
 params = ['dp', 'dy', 'ep', 'de', 'svar', 'bm', 'ntis', 'tbl', 'lty', 'ltr',
        'tms', 'dfy', 'dfr', 'infl']
@@ -33,11 +41,16 @@ params = ['dp', 'dy', 'ep', 'de', 'svar', 'bm', 'ntis', 'tbl', 'lty', 'ltr',
 def index():
 	return render_template("index.html")
 	
-@app.route("/process", methods=['GET', 'POST'])
+@app.route("/clear", methods=['POST'])
+def clear():
+	print("Clear")
+	return render_template('index.html', raw_text="", prediction_result="")
+
+@app.route("/process", methods=['POST'])
 def process():
+	
 	json_text = request.form["rawtext"]
-	
-	
+		
 	json1_data = json.loads(json_text)
 	
 	# json_dict = json.decoder.JSONObject(json_text)
@@ -52,19 +65,6 @@ def process():
 		
 	df = pd.DataFrame(d)
 	
-	y_pred = lr.predict(df)
+	y_pred = model.predict(df)
 	
-	
-	print(y_pred)
-	
-	# results = [("prediction_result",y_pred)]
-	
-	# response = make_response(render_template('index.html',"prediction_result"=y_pred))
-	# response.headers["prediction_result"] = y_pred
-	# return response
-	# response = app.response_class(
-		
-	js = [ { "prediction_result" : int(y_pred[0]) } ]
-	
-	response =  Response(json.dumps(js),  mimetype='application/json')
 	return render_template('index.html', raw_text=json_text, prediction_result=int(y_pred[0]))
