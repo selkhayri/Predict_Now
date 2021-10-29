@@ -144,3 +144,25 @@ From the project folder:
 
 NB: This JSON payload in the image is incorrect and was used to test the response to API response to invalid request payloads.
 
+## Files
+
+`PN.py` : Training machine learning models 
+
+`PN.sh` : Sets environment and invokes `PN.py`
+
+`pn_config.py` : Contains environment settings
+
+`predict_now.sav` : saved serialized machine learning model
+
+`predict.py` : Prediction module using saved machine learning model
+
+`README.md` : This file. 
+
+`req_param.json` : Test json payload
+
+`requirements_con.txt` : contains the dependencies list for `conda`
+
+`requirements_pip.txt` : contains the dependencies list for `pip`
+
+`SPX_train_0.xlsx` : Data file
+
