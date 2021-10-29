@@ -7,8 +7,8 @@ expose it as an API
 ## Dataset
 The dataset for this project was supplied in the form of a Microsoft&reg; Excel 
 spreadsheet. It consists of 899 rows, each row being composed of the following 
-14 columns: **dp**, **dy**, **ep**, **de**, **svar**, **bm**, **ntis**, **tbl**, 
-**lty**, **ltr**, **tms**, **dfy**, **dfr**, and **infl**
+14 columns: `dp`, `dy`, `ep`, `de`, `svar`, `bm`, `ntis`, `tbl`, `lty`, `ltr`, 
+`tms`, `dfy`, `dfr`, and `infl`
 
 ## Data Ingestion and Model Training
 
@@ -29,21 +29,29 @@ MinMaxScaler.
 In order to obtain the best results possible, the data is used to train the
 following models:
 
-* Logistic Regression
-* Random Forest
-* Support Vector Machines - RBF
-* Naive Bayes
-* K Nearest Neighbour
-* Decision Trees
-* Bagging Classifier
-* AdaBoost Classifier
-* Neural Network (using TensorFlow)
+* `Logistic Regression`
+* `Random Forest`
+* `Support Vector Machines - RBF`
+* `Naive Bayes`
+* `K Nearest Neighbour`
+* `Decision Trees`
+* `Bagging Classifier`
+* `AdaBoost Classifier`
+* `Neural Network (using TensorFlow)`
 
 Each of the models is training on the training dataset and tested on the test
 dataset. During the training, model that achieves the best test data accuracy 
 is saved to a file so that it can be used by the prediction tool.
 
 ## Design
+
+### Required libraries
+
+From within the project folder, run the following commands:
+
+* `conda create --name <env_name> --file requirements_con.txt`
+* `conda activate <env_name>`
+* `pip install -r requirements_pip.txt`
 
 ### Components
 
@@ -80,7 +88,7 @@ a cron job, run the `crontab -e` command to edit the crontab file. Since new dat
 is generated every month, running the file on a monthly basis should suffice. As
 such, place the following entry into the crontab file:
 
-`5 * * * * /home/sami/education/DataScience/Sharpest_Minds/Predict_Now/PN.sh`
+`* * 15 * * /home/sami/education/DataScience/Sharpest_Minds/Predict_Now/PN.sh`
 
 The `PN.sh` file is a shell script that sets the environment before prompting 
 the `PN.py` process to run.  
@@ -111,9 +119,26 @@ value pairs representing one row of predictor values, such as the following:
 
 The `predict.py` script parses the string, creates a dataframe with a single 
 row, loads the ML model, `predict_now,` from disk, and then runs the predict 
-function to obtain and return the `Returns` value in json format. 
+function to obtain and return the `Returns` value in json format, such as the 
+following:
 
- 
+`{"Returns":["1"]}`
+
+If an error is encountered in the processing of the request, the following json
+response is returned:
+
+`{"Returns":["Illegal data submitted"]}`
+
+## Deployment
+
+The following steps are required to deploy the API:
+
+From the project folder:
+
+* run the command `export FLASK_APP="predict.py"`
+* run the command `flask run`
+
+
 
 
   
