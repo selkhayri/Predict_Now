@@ -138,7 +138,9 @@ From the project folder:
 * run the command `export FLASK_APP="predict.py"`
 * run the command `flask run`
 
+## Images
 
+![WebUI](images/WebUI.png)
 
+NB: This JSON payload in the image is incorrect and was used to test the response to API response to invalid request payloads.
 
-  
