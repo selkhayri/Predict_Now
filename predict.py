@@ -56,21 +56,28 @@ def clear():
 def process():
 	log.info("Get Returns target from predictor variables")
 	
-	json_text = request.form["rawtext"]	
-	json1_data = json.loads(json_text)
+	results = ""
+	try:
+		json_text = request.form["rawtext"]	
+		json1_data = json.loads(json_text)
+			
+		d = dict()
 		
-	d = dict()
-	
-	for param in params:
-		key = param
-		val = []
-		val.append(json1_data[key])
-		d[key] = val
+		for param in params:
+			key = param
+			val = []
+			val.append(json1_data[key])
+			d[key] = val
+			
+		df = pd.DataFrame(d)
 		
-	df = pd.DataFrame(d)
-	
-	y_pred = model.predict(df)
-	
-	results = [str(y_pred[0])]
-	
+		y_pred = model.predict(df)
+		
+		results = [str(y_pred[0])]
+		
+	except Exception:
+		log.error("Illegal data submitted") 
+		results = ["Illegal data submitted"]
+		
+		
 	return jsonify(Returns = results)

@@ -3,7 +3,6 @@
 
 # ### Load the dependencies
 
-# import xlsxwriter
 import pylightxl as xl
 import pandas as pd
 from sklearn.linear_model import LogisticRegression
@@ -31,12 +30,7 @@ import logging
 logging.basicConfig(filename=f"{pn_config.log_file}", filemode='w', format=f'{pn_config.log_format}', level = logging.DEBUG)
 log = logging.getLogger("Predict_Now")
 
-log.warning('Watch out!')  # will print a message to the console
-log.info('I told you so')  # will not print anything
-
-
 ### Load the dataset
-
 
 # ### Read the data file
 
@@ -57,6 +51,9 @@ log.info("Create pandas dataframe")
 df = pd.DataFrame(file_rows[1:])
 df.columns = file_rows[0]
 df.head()
+
+# Drop df rows with null values
+df.dropna(axis=0, how='any', inplace=True)
 
 # Assume that the data is balanced
 
@@ -128,7 +125,7 @@ train_test(rf, "Random Forest", X_train, X_test, y_train, y_test)
 
 # ### Create a Support Vector - RBF model, then call train_test to implement the steps explained above
 log.info("Support Vector - RBF")    
-svc = svm.SVC(kernel="rbf",max_iter=-1,C=10**9, gamma="auto")
+svc = svm.SVC(kernel="rbf",max_iter=-1,C=10**5, gamma="auto")
 train_test(svc, "Support Vector - RBF", X_train, X_test, y_train, y_test)
 
 

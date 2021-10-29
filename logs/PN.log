@@ -1,4 +1,100 @@
-2021-10-28 20:32:48,790 - Predict_Now_predict - INFO - Loaded ML model
-2021-10-28 20:32:48,793 - werkzeug - INFO -  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
-2021-10-28 20:33:12,408 - Predict_Now_predict - INFO - Get Returns target from predictor variables
-2021-10-28 20:33:12,414 - werkzeug - INFO - 127.0.0.1 - - [28/Oct/2021 20:33:12] "POST /process HTTP/1.1" 200 -
+2021-10-28 22:05:04,222 - Predict_Now - INFO - Load file: /home/sami/education/DataScience/Sharpest_Minds/Predict_Now/SPX_train_0.xlsx
+2021-10-28 22:05:04,354 - Predict_Now - INFO - Read data from sheet: Sheet1
+2021-10-28 22:05:04,400 - Predict_Now - INFO - Create pandas dataframe
+2021-10-28 22:05:04,526 - Predict_Now - INFO - Create features dataframe
+2021-10-28 22:05:04,528 - Predict_Now - INFO - Create target list
+2021-10-28 22:05:04,529 - Predict_Now - INFO - Create train/test split
+2021-10-28 22:05:04,531 - Predict_Now - INFO - Create global variables for the best-performing model
+2021-10-28 22:05:04,531 - Predict_Now - INFO - Run Logistic Regression
+2021-10-28 22:05:04,531 - Predict_Now - INFO - Training Logistic Regression
+2021-10-28 22:05:04,577 - Predict_Now - INFO - Predicting text data
+2021-10-28 22:05:04,579 - Predict_Now - INFO - Generate performance scores
+2021-10-28 22:05:04,580 - Predict_Now - INFO - score on test: 0.5777777777777777
+2021-10-28 22:05:04,581 - Predict_Now - INFO - score on train: 0.5772833723653396
+2021-10-28 22:05:04,582 - Predict_Now - INFO - Confusion matrix: 
+[[ 3 18]
+ [ 1 23]]
+2021-10-28 22:05:04,582 - Predict_Now - INFO - New max score: 0.5777777777777777, model: Logistic Regression
+2021-10-28 22:05:04,582 - Predict_Now - INFO - Random Forest
+2021-10-28 22:05:04,582 - Predict_Now - INFO - Training Random Forest
+2021-10-28 22:05:05,013 - Predict_Now - INFO - Predicting text data
+2021-10-28 22:05:05,047 - Predict_Now - INFO - Generate performance scores
+2021-10-28 22:05:05,078 - Predict_Now - INFO - score on test: 0.5111111111111111
+2021-10-28 22:05:05,117 - Predict_Now - INFO - score on train: 0.9601873536299765
+2021-10-28 22:05:05,118 - Predict_Now - INFO - Confusion matrix: 
+[[ 8 13]
+ [ 9 15]]
+2021-10-28 22:05:05,118 - Predict_Now - INFO - Support Vector - RBF
+2021-10-28 22:05:05,118 - Predict_Now - INFO - Training Support Vector - RBF
+2021-10-28 22:05:05,773 - Predict_Now - INFO - Predicting text data
+2021-10-28 22:05:05,776 - Predict_Now - INFO - Generate performance scores
+2021-10-28 22:05:05,780 - Predict_Now - INFO - score on test: 0.6222222222222222
+2021-10-28 22:05:05,810 - Predict_Now - INFO - score on train: 0.6850117096018735
+2021-10-28 22:05:05,810 - Predict_Now - INFO - Confusion matrix: 
+[[12  9]
+ [ 8 16]]
+2021-10-28 22:05:05,810 - Predict_Now - INFO - New max score: 0.6222222222222222, model: Support Vector - RBF
+2021-10-28 22:05:05,810 - Predict_Now - INFO - Naive Bayes
+2021-10-28 22:05:05,813 - Predict_Now - INFO - Training Naive Bayes
+2021-10-28 22:05:05,814 - Predict_Now - INFO - Predicting text data
+2021-10-28 22:05:05,814 - Predict_Now - INFO - Generate performance scores
+2021-10-28 22:05:05,814 - Predict_Now - INFO - score on test: 0.5333333333333333
+2021-10-28 22:05:05,815 - Predict_Now - INFO - score on train: 0.5761124121779859
+2021-10-28 22:05:05,815 - Predict_Now - INFO - Confusion matrix: 
+[[ 0 21]
+ [ 0 24]]
+2021-10-28 22:05:05,815 - Predict_Now - INFO - K Nearest Neighbour clustering
+2021-10-28 22:05:05,815 - Predict_Now - INFO - Training K Nearest Neighbour
+2021-10-28 22:05:05,816 - Predict_Now - INFO - Predicting text data
+2021-10-28 22:05:05,894 - Predict_Now - INFO - Generate performance scores
+2021-10-28 22:05:05,951 - Predict_Now - INFO - score on test: 0.6222222222222222
+2021-10-28 22:05:06,258 - Predict_Now - INFO - score on train: 0.734192037470726
+2021-10-28 22:05:06,259 - Predict_Now - INFO - Confusion matrix: 
+[[10 11]
+ [ 6 18]]
+2021-10-28 22:05:06,259 - Predict_Now - INFO - Support Vector Machines - Linear
+2021-10-28 22:05:06,259 - Predict_Now - INFO - Training Support Vector - Linear
+2021-10-28 22:05:06,261 - Predict_Now - INFO - Predicting text data
+2021-10-28 22:05:06,263 - Predict_Now - INFO - Generate performance scores
+2021-10-28 22:05:06,265 - Predict_Now - INFO - score on test: 0.5333333333333333
+2021-10-28 22:05:06,267 - Predict_Now - INFO - score on train: 0.5761124121779859
+2021-10-28 22:05:06,278 - Predict_Now - INFO - Confusion matrix: 
+[[ 0 21]
+ [ 0 24]]
+2021-10-28 22:05:06,278 - Predict_Now - INFO - Decision Trees Classifier
+2021-10-28 22:05:06,278 - Predict_Now - INFO - Training Decision Trees
+2021-10-28 22:05:06,290 - Predict_Now - INFO - Predicting text data
+2021-10-28 22:05:06,292 - Predict_Now - INFO - Generate performance scores
+2021-10-28 22:05:06,294 - Predict_Now - INFO - score on test: 0.5333333333333333
+2021-10-28 22:05:06,295 - Predict_Now - INFO - score on train: 1.0
+2021-10-28 22:05:06,296 - Predict_Now - INFO - Confusion matrix: 
+[[11 10]
+ [11 13]]
+2021-10-28 22:05:06,296 - Predict_Now - INFO - Bagging Classifier
+2021-10-28 22:05:06,296 - Predict_Now - INFO - Training Bagging
+2021-10-28 22:05:09,935 - Predict_Now - INFO - Predicting text data
+2021-10-28 22:05:09,999 - Predict_Now - INFO - Generate performance scores
+2021-10-28 22:05:10,064 - Predict_Now - INFO - score on test: 0.5333333333333333
+2021-10-28 22:05:10,203 - Predict_Now - INFO - score on train: 0.9918032786885246
+2021-10-28 22:05:10,204 - Predict_Now - INFO - Confusion matrix: 
+[[10 11]
+ [10 14]]
+2021-10-28 22:05:10,204 - Predict_Now - INFO - AdaBoost Classifier
+2021-10-28 22:05:10,204 - Predict_Now - INFO - Training AdaBoost
+2021-10-28 22:05:13,524 - Predict_Now - INFO - Predicting text data
+2021-10-28 22:05:13,588 - Predict_Now - INFO - Generate performance scores
+2021-10-28 22:05:13,652 - Predict_Now - INFO - score on test: 0.5333333333333333
+2021-10-28 22:05:13,790 - Predict_Now - INFO - score on train: 0.9941451990632318
+2021-10-28 22:05:13,790 - Predict_Now - INFO - Confusion matrix: 
+[[ 9 12]
+ [ 9 15]]
+2021-10-28 22:05:13,790 - Predict_Now - INFO - Neural Network
+2021-10-28 22:05:17,332 - tensorflow - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2021-10-28 22:05:18,682 - Predict_Now - INFO - Creating neural net
+2021-10-28 22:05:19,371 - Predict_Now - INFO - Training neural net model
+2021-10-28 22:09:03,205 - Predict_Now - INFO - score on test: 0.5333333611488342
+2021-10-28 22:09:03,587 - Predict_Now - INFO - Confusion matrix: 
+[[ 0 21]
+ [ 0 24]]
+2021-10-28 22:09:03,589 - Predict_Now - INFO - Neural Net score: 0.5333333333333333
+2021-10-28 22:09:03,589 - Predict_Now - INFO - Save best-performing model, Support Vector - RBF, to disk: /home/sami/education/DataScience/Sharpest_Minds/Predict_Now/predict_now.sav
