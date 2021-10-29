@@ -1,0 +1,4 @@
+2021-10-28 20:32:48,790 - Predict_Now_predict - INFO - Loaded ML model
+2021-10-28 20:32:48,793 - werkzeug - INFO -  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2021-10-28 20:33:12,408 - Predict_Now_predict - INFO - Get Returns target from predictor variables
+2021-10-28 20:33:12,414 - werkzeug - INFO - 127.0.0.1 - - [28/Oct/2021 20:33:12] "POST /process HTTP/1.1" 200 -
